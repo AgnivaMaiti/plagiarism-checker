@@ -4,7 +4,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 # Ensure NLTK data is available
 try:
     nltk.data.find('tokenizers/punkt')
-except nltk.downloader.DownloadError:
+except LookupError:
     nltk.download('punkt', quiet=True)
 
 
