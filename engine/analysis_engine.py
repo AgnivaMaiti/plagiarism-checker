@@ -5,10 +5,7 @@ from sentence_transformers import SentenceTransformer, util
 from transformers import pipeline
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.preprocessing import StandardScaler
-
-# Import our utility functions
 from utils.text_utils import get_tfidf_score, char_ngram_jaccard, normalized_levenshtein
-
 
 class PlagiarismAnalyzer:
     """

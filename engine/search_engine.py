@@ -5,7 +5,6 @@ from sentence_transformers import SentenceTransformer
 from .analysis_engine import PlagiarismAnalyzer # Import from within the same package
 
 class SearchEngine:
-    """Performs the two-stage search for plagiarism sources."""
     def __init__(self, analysis_engine: PlagiarismAnalyzer):
         self.analysis_engine = analysis_engine
         self.sbert_model = self.analysis_engine.sbert_model
@@ -33,7 +32,6 @@ class SearchEngine:
             print("❌ Index is not loaded. Cannot perform search.")
             return []
 
-        # --- Stage 1: Candidate Retrieval ---
         print(f"  - Stage 1: Retrieving top {top_k} candidates from the vector database...")
         query_vector = self.sbert_model.encode([query_text])
         _, indices = self.index.search(query_vector, top_k)
@@ -41,7 +39,6 @@ class SearchEngine:
         candidate_indices = indices[0]
         print(f"  - Retrieved candidates: {[self.metadata[i] for i in candidate_indices]}")
 
-        # --- Stage 2: Detailed Analysis ---
         print("  - Stage 2: Performing detailed analysis on candidates...")
         results = []
         for idx in candidate_indices:
