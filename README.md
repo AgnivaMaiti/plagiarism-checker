@@ -110,3 +110,7 @@ MIT License
 - [Sentence Transformers](https://www.sbert.net/)
 - [FAISS](https://github.com/facebookresearch/faiss)
 - [XGBoost](https://xgboost.readthedocs.io/)
+
+## Contributing
+
+Issues and PRs are welcome! Open an [issue](https://github.com/AgnivaMaiti/plagiarism-checker/issues)  here.
