@@ -1,0 +1,8 @@
+scikit-learn
+pandas
+sentence-transformers
+xgboost
+nltk
+transformers
+faiss-cpu
+torch
