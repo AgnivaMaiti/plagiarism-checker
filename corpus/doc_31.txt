@@ -1,0 +1,1 @@
+In particular, regularity is controlled by the property that alterations or modifications of the scheme (or algebraic space) are quasi-perfect. Additionally, we study the local behavior of quasi-perfect morphisms, showing that for proper morphisms this property can be detected via stalks, and completions and (strict) Henselizations of those.

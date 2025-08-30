@@ -1,0 +1,1 @@
+This work gives a new characterization of regular Noetherian schemes (more generally algebraic spaces) as those for which blowups at closed points are quasi-perfect. In particular, regularity is controlled by the property that alterations or modifications of the scheme (or algebraic space) are quasi-perfect.

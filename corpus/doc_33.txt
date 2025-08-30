@@ -1,0 +1,1 @@
+Additionally, we study the local behavior of quasi-perfect morphisms, showing that for proper morphisms this property can be detected via stalks, and completions and (strict) Henselizations of those. Furthermore, we show that the locus of points where a proper morphism is quasi-perfect forms a Zariski open set.

@@ -1,0 +1,1 @@
+In data mining, a decision tree describes data, but the resulting classification tree can be an input for decision-making. Random forest regression Random forest regression (RFR) falls under umbrella of decision tree-based models.

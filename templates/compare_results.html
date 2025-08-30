@@ -1,0 +1,96 @@
+{% extends "layout.html" %} {% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1 class="h2">Direct Comparison Result</h1>
+  <a href="{{ url_for('compare_page') }}" class="btn btn-secondary"
+    >Compare Again</a
+  >
+</div>
+
+<div class="card">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <strong>Overall Result</strong>
+    <span class="badge bg-danger fs-6"
+      >Plagiarism Score: {{ result.unified_plagiarism_score }}</span
+    >
+  </div>
+  <div class="card-body">
+    <p>
+      <strong>Detection Method:</strong>
+      <span class="text-muted">{{ result.detection_method }}</span>
+    </p>
+    <h6 class="mt-4">Detailed Component Scores:</h6>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <strong
+          >lexical_word_similarity (TF-IDF): {{
+          result.component_scores['lexical_word_similarity (TF-IDF)'] }}</strong
+        >
+        <br /><small class="text-muted"
+          >Measures the overlap of important words. A high score means many of
+          the same non-common words are used.</small
+        >
+      </li>
+      <li class="list-group-item">
+        <strong
+          >lexical_char_similarity (N-gram): {{
+          result.component_scores['lexical_char_similarity (N-gram)'] }}</strong
+        >
+        <br /><small class="text-muted"
+          >Compares short sequences of characters. Effective at catching
+          copy-pasting, even with minor changes.</small
+        >
+      </li>
+      <li class="list-group-item">
+        <strong
+          >lexical_edit_similarity (Levenshtein): {{
+          result.component_scores['lexical_edit_similarity (Levenshtein)']
+          }}</strong
+        >
+        <br /><small class="text-muted"
+          >Calculates the number of edits (add, delete, substitute) needed to
+          make the texts identical. A high score means very few edits are
+          needed.</small
+        >
+      </li>
+      <li class="list-group-item">
+        <strong
+          >semantic_similarity (Multilingual): {{
+          result.component_scores['semantic_similarity (Multilingual)']
+          }}</strong
+        >
+        <br /><small class="text-muted">
+          <b>This is the most important score.</b> It measures if two texts have
+          the same *meaning*, even if they use different words (paraphrasing).
+          The model is "multilingual" because its understanding of language is
+          so deep it excels at this, even within English.
+        </small>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">Original Text</div>
+      <div
+        class="card-body"
+        style="white-space: pre-wrap; max-height: 400px; overflow-y: auto"
+      >
+        {{ text1 }}
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">Text to Check</div>
+      <div
+        class="card-body"
+        style="white-space: pre-wrap; max-height: 400px; overflow-y: auto"
+      >
+        {{ text2 }}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

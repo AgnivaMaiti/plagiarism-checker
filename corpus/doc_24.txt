@@ -1,0 +1,1 @@
+Ellerman bombs (EBs) are small and short-lived magnetic reconnection events in the lower solar atmosphere, most commonly reported in the line wings of the H$\alpha$ line. These events are thought to play a role in heating the solar chromosphere and corona, but their size, short lifetime, and similarity to other brightenings make them difficult to detect.

@@ -1,0 +1,1 @@
+In this paper, we address this trust issue by proposing an interactive verification paradigm for data attribution. An untrusted and computationally powerful Prover learns data attributions, and then engages in an interactive proof with a resource-constrained Verifier.

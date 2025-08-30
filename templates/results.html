@@ -1,0 +1,98 @@
+{% extends "layout.html" %} {% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1 class="h2">Corpus Analysis Results</h1>
+  <a href="{{ url_for('index') }}" class="btn btn-secondary"
+    >Check Another Text</a
+  >
+</div>
+
+<div class="card">
+  <div class="card-header">Your Submitted Text</div>
+  <div class="card-body">
+    <p class="font-monospace" style="white-space: pre-wrap">{{ query }}</p>
+  </div>
+</div>
+
+{% if sources %}
+<div class="alert alert-danger" role="alert">
+  <h4 class="alert-heading">Plagiarism Detected!</h4>
+  <p>
+    The following sources from our corpus were found to be highly similar to
+    your submitted text.
+  </p>
+</div>
+{% for source in sources %}
+<div class="card">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <strong>Source Document: {{ source.source_document }}</strong>
+    <span class="badge bg-danger fs-6"
+      >Plagiarism Score: {{ source.plagiarism_score }}</span
+    >
+  </div>
+  <div class="card-body">
+    <p>
+      <strong>Detection Method:</strong>
+      <span class="text-muted">{{ source.details.detection_method }}</span>
+    </p>
+    <!-- In templates/results.html - CORRECTED VERSION -->
+    <h6 class="mt-4">Detailed Component Scores:</h6>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <strong
+          >lexical_word_similarity (TF-IDF): {{
+          source.details.component_scores['lexical_word_similarity (TF-IDF)']
+          }}</strong
+        >
+        <br /><small class="text-muted"
+          >Measures the overlap of important words. A high score means many of
+          the same non-common words are used.</small
+        >
+      </li>
+      <li class="list-group-item">
+        <strong
+          >lexical_char_similarity (N-gram): {{
+          source.details.component_scores['lexical_char_similarity (N-gram)']
+          }}</strong
+        >
+        <br /><small class="text-muted"
+          >Compares short sequences of characters. Effective at catching
+          copy-pasting, even with minor changes.</small
+        >
+      </li>
+      <li class="list-group-item">
+        <strong
+          >lexical_edit_similarity (Levenshtein): {{
+          source.details.component_scores['lexical_edit_similarity
+          (Levenshtein)'] }}</strong
+        >
+        <br /><small class="text-muted"
+          >Calculates the number of edits (add, delete, substitute) needed to
+          make the texts identical. A high score means very few edits are
+          needed.</small
+        >
+      </li>
+      <li class="list-group-item">
+        <strong
+          >semantic_similarity (Multilingual): {{
+          source.details.component_scores['semantic_similarity (Multilingual)']
+          }}</strong
+        >
+        <br /><small class="text-muted">
+          <b>This is the most important score.</b> It measures if two texts have
+          the same *meaning*, even if they use different words (paraphrasing).
+          The model is "multilingual" because its understanding of language is
+          so deep it excels at this, even within English.
+        </small>
+      </li>
+    </ul>
+  </div>
+</div>
+{% endfor %} {% else %}
+<div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">No Significant Plagiarism Detected</h4>
+  <p>
+    Our analysis did not find any documents in the corpus with a plagiarism
+    score above the threshold for the text you provided.
+  </p>
+</div>
+{% endif %} {% endblock %}

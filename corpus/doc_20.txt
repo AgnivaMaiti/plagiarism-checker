@@ -1,0 +1,1 @@
+Additionally, we introduce an algorithm for the design of mixture alphabets that accounts for the RX characteristics. We evaluate our detector and alphabet design algorithm through simulations that are based on measurements reported for two commercial MOS sensors.

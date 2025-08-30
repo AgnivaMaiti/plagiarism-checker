@@ -1,0 +1,1 @@
+An untrusted and computationally powerful Prover learns data attributions, and then engages in an interactive proof with a resource-constrained Verifier. Our main result is a protocol that provides formal completeness, soundness, and efficiency guarantees in the sense of Probably-Approximately-Correct (PAC) verification.

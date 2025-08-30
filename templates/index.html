@@ -1,0 +1,36 @@
+{% extends "layout.html" %} {% block content %}
+<div class="card">
+  <div class="card-body">
+    <h1 class="card-title">Check for Plagiarism</h1>
+    <p class="card-text">
+      Enter the text you want to analyze below. The system will compare it
+      against a document corpus using a hybrid of lexical and semantic analysis
+      to find potential sources of plagiarism.
+    </p>
+    <form action="{{ url_for('check_plagiarism') }}" method="POST">
+      <div class="mb-3">
+        <textarea
+          class="form-control"
+          name="query_text"
+          rows="10"
+          placeholder="Paste your text here..."
+          required
+        ></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Analyze Text</button>
+    </form>
+  </div>
+</div>
+
+<div class="p-3 mb-4 bg-light rounded-3">
+  <div class="container-fluid py-3">
+    <h3 class="display-6 fw-bold">How It Works</h3>
+    <p class="col-md-12 fs-5">
+      This tool uses a two-stage process. First, a fast vector search (FAISS)
+      retrieves the most likely candidate documents from the corpus. Then, a
+      detailed analysis using TF-IDF, sentence embeddings, and a trained XGBoost
+      model calculates the final plagiarism score for each candidate.
+    </p>
+  </div>
+</div>
+{% endblock %}

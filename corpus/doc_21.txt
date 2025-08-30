@@ -1,0 +1,1 @@
+To address this gap, we propose a detector for molecule mixture communication with a general non-linear, cross-reactive receiver (RX) array that performs approximate maximum likelihood detection on the sensor outputs. Additionally, we introduce an algorithm for the design of mixture alphabets that accounts for the RX characteristics.

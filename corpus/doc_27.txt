@@ -1,0 +1,1 @@
+This pipeline identifies and tracks EBs in time, while separating them from visually similar pseudo-EBs. It returns key parameters such as size, contrast, lifetime, and occurrence rates based on a dynamic threshold and the more classical static `contrast threshold` of 1.5 times the mean quiet-Sun (QS) intensity.

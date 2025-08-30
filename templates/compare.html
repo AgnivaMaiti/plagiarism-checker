@@ -1,0 +1,44 @@
+{% extends "layout.html" %} {% block content %}
+<div class="card">
+  <div class="card-body">
+    <h1 class="card-title">Direct 1-to-1 Comparison</h1>
+    <p class="card-text">
+      Paste the two pieces of text you want to compare directly against each
+      other. This tool does not use the corpus; it performs a detailed analysis
+      between only these two inputs to find paraphrasing, synonyms, and direct
+      copying.
+    </p>
+    <form action="{{ url_for('perform_compare') }}" method="POST">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="text1" class="form-label"
+            ><strong>Original Text</strong></label
+          >
+          <textarea
+            class="form-control"
+            name="text1"
+            id="text1"
+            rows="12"
+            placeholder="Paste the source text here..."
+            required
+          ></textarea>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="text2" class="form-label"
+            ><strong>Text to Check</strong></label
+          >
+          <textarea
+            class="form-control"
+            name="text2"
+            id="text2"
+            rows="12"
+            placeholder="Paste the text to compare against the original..."
+            required
+          ></textarea>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Compare Texts</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

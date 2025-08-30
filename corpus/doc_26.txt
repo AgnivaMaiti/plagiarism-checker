@@ -1,0 +1,1 @@
+For our dynamic threshold, we found a total of 2257 EBs from 28,772 individual detections across our datasets. On average, the full detection set exhibits an area of 0.44 arcsec$^2$ (0.37 Mm$^2$), a peak intensity contrast of 1.4 relative to the QS, and a median lifetime of 2.3 min.

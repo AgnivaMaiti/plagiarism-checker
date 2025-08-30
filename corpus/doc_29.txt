@@ -1,0 +1,1 @@
+Long lived software projects encompass a large number of artifacts, which undergo many revisions throughout their history. Empirical software engineering researchers studying software evolution gather and collect datasets with millions of events, representing changes introduced to specific artifacts.

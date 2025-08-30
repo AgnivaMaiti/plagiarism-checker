@@ -1,0 +1,1 @@
+This pipeline was used on ten high-resolution H$\alpha$ datasets from the 1-meter Swedish Solar Telescope (SST). This pipeline identifies and tracks EBs in time, while separating them from visually similar pseudo-EBs.
